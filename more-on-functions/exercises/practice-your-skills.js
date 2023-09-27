@@ -12,4 +12,18 @@ b) Replace any strings with “ARRR!”
 c) Print the new array to confirm your work.
 */
 
-let arr = ['Elocution', 21, 'Clean teeth', 100];
+let arr = ['Elocution', 21, 'Clean teeth', 100, true];
+
+let pirateTripler = function(value){
+    if (typeof value === 'number'){
+        return (value*3);
+    } else if (typeof value === 'string'){
+        return 'ARRR!';
+    } else {
+        return value;
+    }
+};
+
+let piratizedArray = arr.map(pirateTripler);
+
+console.log(piratizedArray);

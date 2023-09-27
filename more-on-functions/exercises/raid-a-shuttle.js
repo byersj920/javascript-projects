@@ -18,14 +18,51 @@ function holdStatus(arr){
   }
 }
 
-let fuelLevel = 200000;
+let fuelChecker = function(value) {
+  if (checkFuel(value) === 'green'){
+    return (value-100001);
+  } else if (checkFuel(value) === 'yellow'){
+    return (value-50001);
+  } else{
+    return value;
+  }
+};
+
+let cargoChecker = function(arr){
+  let cleaningSupplies = [];
+  let goods1 = arr[arr.indexOf('gold')];
+  let goods2 = arr[arr.indexOf('satellite')];
+  cleaningSupplies.push(goods1, goods2);
+  arr.splice(cargoHold.indexOf('gold'),1, "fool's gold");
+  arr.splice(cargoHold.indexOf('satellite'),1, "lego satellite");
+  return cleaningSupplies;
+};
+
+
+let fuelLevel = 56789;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
+let irs = function (fuelAmount, cargoInventory){
+  let cleaningSupplies = cargoChecker(cargoInventory);
+  return `"Raided ${fuelChecker(fuelAmount)}kg of fuel from the tanks, and stole ${cleaningSupplies[0]} and ${cleaningSupplies[1]} from the cargo hold.`
+};
+
+console.log(irs(fuelLevel, cargoHold));
+
+
+
+
+
+
+
+
+
+
 /* Steal some fuel from the shuttle:
- * /
+ */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
@@ -53,5 +90,4 @@ console.log("Hold status: " + holdStatus(cargoHold));
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
-//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
-
+//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold.*/
