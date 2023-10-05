@@ -53,14 +53,6 @@ let irs = function (fuelAmount, cargoInventory){
 console.log(irs(fuelLevel, cargoHold));
 
 
-
-
-
-
-
-
-
-
 /* Steal some fuel from the shuttle:
  */
  
